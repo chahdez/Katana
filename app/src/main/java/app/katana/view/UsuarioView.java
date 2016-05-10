@@ -15,5 +15,4 @@ public class UsuarioView extends View {
     public UsuarioView(Context context) {
         super(context);
     }
-
 }

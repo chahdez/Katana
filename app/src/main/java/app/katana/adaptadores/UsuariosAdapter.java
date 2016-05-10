@@ -18,6 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by jchernandez on 09/05/2016.
  */
+
 public class UsuariosAdapter extends ArrayAdapter<Usuario> {
     private Context context;
     private int LayoutID;
