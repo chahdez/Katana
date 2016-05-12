@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
@@ -17,7 +18,6 @@ import app.katana.adaptadores.UsuariosAdapter;
 import app.katana.clases.LlamadaServidor;
 import app.katana.clases.Usuario;
 import org.json.JSONArray;
-
 
 import java.util.ArrayList;
 
@@ -31,12 +31,12 @@ public class MyActivity extends Activity {
         setContentView(R.layout.main);
         //inicializarActionBar();
         if(isOnline()){
-            String URL = "http://jsonplaceholder.typicode.com/users";
-            cargando(this,true);
-            new LlamadaServidor() {
+            String URL = "http://jsonplaceholder.typicode.com/posts";
+            //cargando(this,true);
+            LlamadaServidor peticion = new LlamadaServidor() {
                 @Override
                 public void Resultado(JSONArray Content) throws Exception {
-                    ListView lv;
+                    /*ListView lv;
                     ArrayList<Usuario> list;
                     Usuario usr = new Usuario();
                     UsuariosAdapter adapter;
@@ -45,13 +45,21 @@ public class MyActivity extends Activity {
                     lv = (ListView)findViewById(R.id.lv);
                     adapter = new UsuariosAdapter(MyActivity.this,R.layout.list_item,list);
                     lv.setAdapter(adapter);
-                    cargando(MyActivity.this,true);
+                    cargando(MyActivity.this,true);*/
+                    Log.d("Content" , Content.toString());
                 }
                 @Override
                 public void Error(String Error) {
-                    Toast.makeText(getApplicationContext(),Error, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Error", Toast.LENGTH_SHORT).show();
                 }
-            }.execute(URL);
+            };
+            /*SOAP*/
+            peticion.propiedad("x", "1");
+            peticion.propiedad("y", "1");
+            peticion.execute("SOAP", "ServerInfo");
+            /*REST
+            peticion.parametro("userid","1");
+            peticion.execute("REST",URL,"GET");*/
         }
     }
 
