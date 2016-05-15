@@ -53,11 +53,10 @@ public abstract class LlamadaServidor extends AsyncTask<String,Void,Void> {
 
     @Override
     protected Void doInBackground(String... params) {
-        WS = params[0];
         switch (WS){
             case "REST" :
                 URL = params[1];
-                METHOD_CALL = params[2].toUpperCase();
+                METHOD_CALL = params[0].toUpperCase();
                 try {
                     switch (METHOD_CALL){
                         case  "GET" :
@@ -87,7 +86,8 @@ public abstract class LlamadaServidor extends AsyncTask<String,Void,Void> {
                 String HOST = "http://200.77.36.95";
                 String SERVICE = "/ServiciosWeb.asmx";
                 String SOAP_ACTION = "http://tempuri.org/"+ METHOD_NAME;
-                METHOD_NAME = params[1];
+                METHOD_NAME = params[0];
+                URL = HOST + SERVICE;
                 try{
                     SoapObject request = new SoapObject(NAME_SPACE, METHOD_NAME);
                     if(propiedades.size() > 0){
