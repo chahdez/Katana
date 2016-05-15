@@ -37,14 +37,8 @@ public abstract class LlamadaServidor extends AsyncTask<String,Void,Void> {
     private String Error = null;
     private String WS;
     private String METHOD_CALL;
-    private String NAME_SPACE = "http://services.aonaware.com";
-    private String HOST = "http://services.aonaware.com";
-    private String PATH_WS = "/webservices";
-    private String PATH = "/DictService";
-    private String SERVICE = "/DictService.asmx";
     private String METHOD_NAME;
-    private String SOAP_ACTION;
-    private String URL = HOST + PATH + SERVICE;
+    private String URL;
 
     private List<NameValuePair> parametros = new ArrayList<NameValuePair>();
     private Map<String,String> propiedades = new HashMap<String, String>();
@@ -52,6 +46,10 @@ public abstract class LlamadaServidor extends AsyncTask<String,Void,Void> {
     public abstract void Resultado(JSONArray Content) throws Exception;
 
     public abstract void Error(String Error);
+
+    public LlamadaServidor(String WS){
+        this.WS = WS;
+    }
 
     @Override
     protected Void doInBackground(String... params) {
@@ -85,8 +83,11 @@ public abstract class LlamadaServidor extends AsyncTask<String,Void,Void> {
                 }
                 break;
             case "SOAP" :
+                String NAME_SPACE = "http://200.77.36.95";
+                String HOST = "http://200.77.36.95";
+                String SERVICE = "/ServiciosWeb.asmx";
+                String SOAP_ACTION = "http://tempuri.org/"+ METHOD_NAME;
                 METHOD_NAME = params[1];
-                SOAP_ACTION = HOST + PATH_WS +"/"+ METHOD_NAME;
                 try{
                     SoapObject request = new SoapObject(NAME_SPACE, METHOD_NAME);
                     if(propiedades.size() > 0){
@@ -126,10 +127,13 @@ public abstract class LlamadaServidor extends AsyncTask<String,Void,Void> {
     }
 
     public void parametro (String key , String value){
-        parametros.add(new BasicNameValuePair(key , value));
-    }
-
-    public void propiedad (String key , String value){
-        propiedades.put(key , value);
+        switch (WS){
+            case "REST" :
+                parametros.add(new BasicNameValuePair(key , value));
+                break;
+            case "SOAP" :
+                propiedades.put(key , value);
+                break;
+        }
     }
 }
