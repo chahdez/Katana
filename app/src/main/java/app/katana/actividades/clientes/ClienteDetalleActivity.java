@@ -21,8 +21,9 @@ public class ClienteDetalleActivity extends Activity{
         setContentView(R.layout.cliente_detalle);
 
         String iduser = getIntent().getExtras().getString("iduser");
+        Toast.makeText(this,iduser,Toast.LENGTH_LONG).show();
 
-        LlamadaServidor peticion = new LlamadaServidor("SOAP") {
+        /*LlamadaServidor peticion = new LlamadaServidor("SOAP") {
             @Override
             public void Resultado(JSONArray Content) throws Exception {
                 Log.d("CLIENTE", String.valueOf(Content));
@@ -33,6 +34,6 @@ public class ClienteDetalleActivity extends Activity{
             }
         };
         peticion.parametro("Clave", iduser);
-        peticion.execute("AndoridClientes");
+        peticion.execute("AndoridClientes");*/
     }
 }
