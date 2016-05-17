@@ -6,35 +6,40 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import app.katana.R;
+import app.katana.actividades.clientes.ClienteDetalleActivity;
 import app.katana.actividades.usuarios.UsuarioDetalleActivity;
+import app.katana.clases.Cliente;
 import app.katana.clases.Usuario;
 import app.katana.view.UsuarioView;
 
 /**
- * Created by jchernandez on 09/05/2016.
+ * Created by Usuario on 16/05/16.
  */
-public class UsuariosAdapter extends ArrayAdapter<Usuario> {
+public class ClientesAdapter extends ArrayAdapter<Cliente> {
+
     private Context context;
     private int LayoutID;
-    private ArrayList<Usuario> usuarios;
+    private ArrayList<Cliente> clientes;
 
-    public UsuariosAdapter(Activity context, int resource, ArrayList<Usuario> usuarios) {
-        super(context, resource, usuarios);
+    public ClientesAdapter(Activity context, int resource, ArrayList<Cliente> clientes) {
+        super(context, resource, clientes);
         this.context  = context;
         this.LayoutID = resource;
-        this.usuarios = usuarios;
+        this.clientes = clientes;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LinearLayout row = null;
         UsuarioView holder = null;
-        final Usuario user = usuarios.get(position);
+        final Cliente cli = clientes.get(position);
         if(row == null){
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             row = (LinearLayout) inflater.inflate(LayoutID, parent, false);
@@ -44,12 +49,12 @@ public class UsuariosAdapter extends ArrayAdapter<Usuario> {
         } else {
             row = (LinearLayout) convertView;
         }
-        holder.name.setText(String.valueOf(user.getName()));
+        holder.name.setText(String.valueOf(cli.getNombre()));
         row.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent detalle = new Intent(context,UsuarioDetalleActivity.class);
-                detalle.putExtra("iduser", String.valueOf(user.getID()));
+                Intent detalle = new Intent(context,ClienteDetalleActivity.class);
+                detalle.putExtra("iduser", String.valueOf(cli.getId()));
                 context.startActivity(detalle);
             }
         });

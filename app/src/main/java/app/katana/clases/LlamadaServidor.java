@@ -1,7 +1,6 @@
 package app.katana.clases;
 
 import android.os.AsyncTask;
-import android.util.Log;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -37,7 +36,6 @@ public abstract class LlamadaServidor extends AsyncTask<String,Void,Void> {
     private String Error = null;
     private String WS;
     private String METHOD_CALL;
-    private String METHOD_NAME;
     private String URL;
 
     private List<NameValuePair> parametros = new ArrayList<NameValuePair>();
@@ -47,7 +45,7 @@ public abstract class LlamadaServidor extends AsyncTask<String,Void,Void> {
 
     public abstract void Error(String Error);
 
-    public LlamadaServidor(String WS){
+    public LlamadaServidor(String WS) {
         this.WS = WS;
     }
 
@@ -74,20 +72,20 @@ public abstract class LlamadaServidor extends AsyncTask<String,Void,Void> {
                             break;
                     }
                 } catch (ClientProtocolException e) {
-                    Error = e.getMessage();
+                    Error("Error");
                     cancel(true);
                 } catch (IOException e) {
-                    Error = e.getMessage();
+                    Error("Error");
                     cancel(true);
                 }
                 break;
             case "SOAP" :
-                String NAME_SPACE = "http://200.77.36.95";
-                String HOST = "http://200.77.36.95";
-                String SERVICE = "/ServiciosWeb.asmx";
-                String SOAP_ACTION = "http://tempuri.org/"+ METHOD_NAME;
-                METHOD_NAME = params[0];
+                String NAME_SPACE = "http://200.77.36.95/";
+                String HOST = "http://200.77.36.95/";
+                String SERVICE = "ServiciosWeb.asmx";
                 URL = HOST + SERVICE;
+                String METHOD_NAME = params[0];
+                String SOAP_ACTION = "http://tempuri.org" + "/" + METHOD_NAME;
                 try{
                     SoapObject request = new SoapObject(NAME_SPACE, METHOD_NAME);
                     if(propiedades.size() > 0){
@@ -103,6 +101,7 @@ public abstract class LlamadaServidor extends AsyncTask<String,Void,Void> {
                     SoapPrimitive respuesta =(SoapPrimitive)sobre.getResponse();
                     Content = respuesta.toString();
                 } catch (Exception e) {
+                    e.printStackTrace();
                     Error("Error");
                 }
                 break;
@@ -111,28 +110,21 @@ public abstract class LlamadaServidor extends AsyncTask<String,Void,Void> {
     }
 
     protected void onPostExecute(Void unused) {
-        if(Error != null){
-            Error(Error);
-        } else {
-            try {
-                JSONArray array = new JSONArray(Content);
-                Resultado(array);
-            } catch (JSONException e) {
-                Error = e.getMessage();
-                Error(Error);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        try {
+            JSONArray array = new JSONArray(Content);
+            Resultado(array);
+        } catch (JSONException e) {
+            Error("Error");
+        } catch (Exception e) {
+            Error("Error");
         }
     }
 
     public void parametro (String key , String value){
         switch (WS){
-            case "REST" :
-                parametros.add(new BasicNameValuePair(key , value));
+            case "SOAP": propiedades.put(key , value);
                 break;
-            case "SOAP" :
-                propiedades.put(key , value);
+            case "REST": parametros.add(new BasicNameValuePair(key, value));
                 break;
         }
     }

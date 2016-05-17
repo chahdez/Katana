@@ -9,32 +9,11 @@
         <dex dex="/Users/Usuario/AndroidStudioProjects/Katana/app/build/intermediates/pre-dexed/debug/classes-a8151a33aa5863cb1fe56e2442b9d8919be218eb.jar" />
     </item>
     <item
-        jar="/Users/Usuario/AndroidStudioProjects/Katana/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jar="/Users/Usuario/AndroidStudioProjects/Katana/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/Users/Usuario/AndroidStudioProjects/Katana/app/build/intermediates/pre-dexed/debug/classes-7fb32c4f1f9eaac3e92d877204d354af16084328.jar" />
-    </item>
-    <item
-        jar="/Users/Usuario/GitHub/Katana/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/Users/Usuario/GitHub/Katana/app/build/intermediates/pre-dexed/debug/classes-e0d52c024ca8721e7f5181e1eea3c90ad3df409b.jar" />
-    </item>
-    <item
-        jar="/Users/Usuario/GitHub/Katana/app/libs/ksoap2-android-assembly-2.4-jar-with-dependencies.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="e8796346a9191a019e936210a2dc50662c57594b">
-        <dex dex="/Users/Usuario/GitHub/Katana/app/build/intermediates/pre-dexed/debug/ksoap2-android-assembly-2.4-jar-with-dependencies-3924972f09c9c12ef9f7d7548e877f7ab40159ad.jar" />
-    </item>
-    <item
-        jar="/Users/Usuario/GitHub/Katana/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/Users/Usuario/GitHub/Katana/app/build/intermediates/pre-dexed/debug/classes-36887f10e99d57ed5cac8ee864470ee3fd9e8830.jar" />
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/Usuario/AndroidStudioProjects/Katana/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-02094b88c620d154a470c2f912bc1c7ce5694063.jar" />
     </item>
     <item
         jar="/Users/Usuario/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
@@ -44,11 +23,11 @@
         <dex dex="/Users/Usuario/AndroidStudioProjects/Katana/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-c856388d4a5d78d4b984469968cde94636aab4e0.jar" />
     </item>
     <item
-        jar="/Users/Usuario/AndroidStudioProjects/Katana/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jar="/Users/Usuario/AndroidStudioProjects/Katana/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="/Users/Usuario/AndroidStudioProjects/Katana/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-02094b88c620d154a470c2f912bc1c7ce5694063.jar" />
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/Usuario/AndroidStudioProjects/Katana/app/build/intermediates/pre-dexed/debug/classes-7fb32c4f1f9eaac3e92d877204d354af16084328.jar" />
     </item>
     <item
         jar="/Users/Usuario/GitHub/Katana/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
@@ -56,6 +35,27 @@
         revision="22.0.1"
         sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
         <dex dex="/Users/Usuario/GitHub/Katana/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-790abf355dfadc53cfc153c3292414b0a3e46f7e.jar" />
+    </item>
+    <item
+        jar="/Users/Usuario/GitHub/Katana/app/libs/ksoap2-android-assembly-2.4-jar-with-dependencies.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e8796346a9191a019e936210a2dc50662c57594b">
+        <dex dex="/Users/Usuario/GitHub/Katana/app/build/intermediates/pre-dexed/debug/ksoap2-android-assembly-2.4-jar-with-dependencies-3924972f09c9c12ef9f7d7548e877f7ab40159ad.jar" />
+    </item>
+    <item
+        jar="/Users/Usuario/GitHub/Katana/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/Usuario/GitHub/Katana/app/build/intermediates/pre-dexed/debug/classes-e0d52c024ca8721e7f5181e1eea3c90ad3df409b.jar" />
+    </item>
+    <item
+        jar="/Users/Usuario/GitHub/Katana/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/Usuario/GitHub/Katana/app/build/intermediates/pre-dexed/debug/classes-36887f10e99d57ed5cac8ee864470ee3fd9e8830.jar" />
     </item>
 
 </items>
