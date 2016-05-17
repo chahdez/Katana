@@ -21,6 +21,7 @@ public class ClienteDetalleActivity extends Activity{
         setContentView(R.layout.cliente_detalle);
 
         String iduser = getIntent().getExtras().getString("iduser");
+
         Toast.makeText(this,iduser,Toast.LENGTH_LONG).show();
 
         /*LlamadaServidor peticion = new LlamadaServidor("SOAP") {
